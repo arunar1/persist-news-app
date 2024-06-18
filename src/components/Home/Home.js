@@ -12,9 +12,8 @@ export default function Home() {
   const { newsData, loading, error } = FetchData(url);
   const [filterArray, setFilterArray] = useState([]);
   const [distinctArray, setDistinctArray] = useState([]);
-  const [selectedNews,setSelectedNews]=useState('')
 
-  console.log(selectedNews)
+  
 
   useEffect(() => {
     if (newsData) {
@@ -54,12 +53,9 @@ export default function Home() {
           </button>
         ))}
       </div>
-      <div style={{justifyContent:'center',display:'flex'}} >
-        {selectedNews ? (< iframe style={{ width: '80vw', height: '100vh', zIndex: 4 }} src={selectedNews} title="Selected News" />) : null}
-      </div>
       <div>
         {(filterArray.length > 0 ? filterArray : newsData)?.map((news, index) => (
-          <Card getValue={{selectedNews,setSelectedNews}} key={news.id} news={news} />
+          <Card  key={news.id} news={news} />
         ))}
       </div>
     </>

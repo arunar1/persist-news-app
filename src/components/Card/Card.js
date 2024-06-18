@@ -1,4 +1,9 @@
-const Card = ({ getValue,news }) => {
+
+import { useContext } from "react";
+import { newsContext } from "../../hooks/UseContextNews";
+
+const Card = ({ news }) => {
+  const {selectedNews,setSelectedNews}=useContext(newsContext)
     const { updated, title, abstract, media } = news;
   
     const mediaMetaData = media?.[0]?.["media-metadata"] || [];
@@ -7,9 +12,8 @@ const Card = ({ getValue,news }) => {
 
     
     const showNewsDetails=(news)=>{
-        const {url}=news
-        console.log(url)
-        getValue.setSelectedNews(url)
+        setSelectedNews(news)
+        console.log(selectedNews)
       }
 
 
