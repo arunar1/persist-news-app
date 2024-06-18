@@ -1,8 +1,12 @@
 
 import { useContext } from "react";
 import { newsContext } from "../../hooks/UseContextNews";
+import { useNavigate } from 'react-router-dom';
+
 
 const Card = ({ news }) => {
+  const navigate = useNavigate();
+
   const {selectedNews,setSelectedNews}=useContext(newsContext)
     const { updated, title, abstract, media } = news;
   
@@ -13,7 +17,7 @@ const Card = ({ news }) => {
     
     const showNewsDetails=(news)=>{
         setSelectedNews(news)
-        console.log(selectedNews)
+        navigate('./details')
       }
 
 
