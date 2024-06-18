@@ -7,10 +7,14 @@ const POPULAR_URL =
   "https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=";
 const url = `${POPULAR_URL}${API_KEY}`;
 
+
 export default function Home() {
   const { newsData, loading, error } = FetchData(url);
   const [filterArray, setFilterArray] = useState([]);
   const [distinctArray, setDistinctArray] = useState([]);
+  const [selectedNews,setSelectedNews]=useState('')
+
+  console.log(selectedNews)
 
   useEffect(() => {
     if (newsData) {
@@ -29,6 +33,8 @@ export default function Home() {
     }
   };
 
+  
+
   if (loading) {
     return <h1>Data Loading...</h1>;
   }
@@ -36,6 +42,8 @@ export default function Home() {
   if (error) {
     return <h1>{error}</h1>;
   }
+
+  
 
   return (
     <>
@@ -46,9 +54,12 @@ export default function Home() {
           </button>
         ))}
       </div>
+      <div style={{justifyContent:'center',display:'flex'}} >
+        {selectedNews ? (< iframe style={{ width: '80vw', height: '100vh', zIndex: 4 }} src={selectedNews} title="Selected News" />) : null}
+      </div>
       <div>
         {(filterArray.length > 0 ? filterArray : newsData)?.map((news, index) => (
-          <Card key={news.id} news={news} />
+          <Card getValue={{selectedNews,setSelectedNews}} key={news.id} news={news} />
         ))}
       </div>
     </>

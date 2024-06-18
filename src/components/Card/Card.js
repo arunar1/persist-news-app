@@ -1,12 +1,23 @@
-const Card = ({ news }) => {
+const Card = ({ getValue,news }) => {
     const { updated, title, abstract, media } = news;
   
     const mediaMetaData = media?.[0]?.["media-metadata"] || [];
     const mediaURL = mediaMetaData?.[0]?.url;
     const mediaCaption = media?.[0]?.caption || "media src";
+
+    
+    const showNewsDetails=(news)=>{
+        const {url}=news
+        console.log(url)
+        getValue.setSelectedNews(url)
+      }
+
+
   
     return (
-      <div >
+      <div style={{backgroundColor:'yellow',margin:'20px'}} onClick={()=>{
+        showNewsDetails(news)
+      }} >
         <div >{updated}</div>
         <article >
           <div>
