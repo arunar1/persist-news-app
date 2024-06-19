@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const Card = ({ news }) => {
   const navigate = useNavigate();
 
+
   const {selectedNews,setSelectedNews}=useContext(newsContext)
     const { updated, title, abstract, media } = news;
   
