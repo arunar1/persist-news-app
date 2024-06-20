@@ -5,9 +5,10 @@ import Container from 'react-bootstrap/Container';
 
 export default function Header() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary" >
+    <Navbar expand="lg" className="header-nav-color" >
       <Container className="container">
-        <Navbar.Brand href="#">News</Navbar.Brand>
+        {/* <Navbar.Brand className="fs-3" href="#">News</Navbar.Brand> */}
+        <h1 className="brandName">PERSIST NEWS</h1>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -15,9 +16,9 @@ export default function Header() {
             style={{ maxHeight: '150px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">About</Nav.Link>
-            <Nav.Link href="#action3">Contact</Nav.Link>
+            <Nav.Link href="">Home</Nav.Link>
+            <Nav.Link href="">About</Nav.Link>
+            <Nav.Link href="">Contact</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

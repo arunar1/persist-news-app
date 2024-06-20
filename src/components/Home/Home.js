@@ -6,10 +6,8 @@ import Nav from 'react-bootstrap/Nav';
 import '../../App.css'
 import Container from 'react-bootstrap/Container';
 import { Filter } from "react-bootstrap-icons";
-const API_KEY = "pjcAWyAdnmYc1Le8js0Z6UyesqoPDX3x";
-const POPULAR_URL =
-  "https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=";
-const url = `${POPULAR_URL}${API_KEY}`;
+
+const url = `${process.env.REACT_APP_POPULAR_URL}${process.env.REACT_APP_API_KEY}`;
 
 export default function Home() {
   const { newsData, loading, error } = FetchData(url);
@@ -51,7 +49,7 @@ export default function Home() {
 
   return (
     <>
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="header-nav-color">
       <Container className="container">
       
         <Navbar.Toggle aria-controls="navbarScroll" ><Filter/></Navbar.Toggle>
@@ -61,7 +59,7 @@ export default function Home() {
             style={{ maxHeight: '150px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">
+            <Nav.Link href="">
             <div>
         {distinctArray?.map((item, index) => (
           <button key={index} onClick={() => filterNews(item)} type="button"  className="btn btn-primary"   style={{ marginRight: '1rem', marginTop: '.25rem', backgroundColor: item === activeBtn ? 'red' : 'transparent',color: item === activeBtn ? 'white' : 'black' }} data-toggle="button" aria-pressed="false" >
