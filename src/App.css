@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+.custom-card-img{
+  width: 100%; 
+  height: auto;
+  
+  
+}
+@media (min-width: 768px) {
+  .custom-card-img {
+    margin: auto;
+    max-width: 700px; 
+  }
+  .card-group{
+    max-width: 700px;
+  }
+  .custome-card{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .navbar-custome{
+    margin: auto;
+  }
+}

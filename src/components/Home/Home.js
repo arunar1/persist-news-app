@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import FetchData from "../../hooks/FetchData";
 import Card from "../Card/Card";
-
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import '../../App.css'
+import Container from 'react-bootstrap/Container';
 const API_KEY = "pjcAWyAdnmYc1Le8js0Z6UyesqoPDX3x";
 const POPULAR_URL =
   "https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=";
@@ -46,17 +49,35 @@ export default function Home() {
 
   return (
     <>
-      <div>
+    <Navbar expand="lg" className="bg-body-tertiary">
+      <Container className="container">
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto navbar-custome"
+            style={{ maxHeight: '150px' }}
+            navbarScroll
+          >
+            <Nav.Link href="#action1">
+            <div>
         {distinctArray?.map((item, index) => (
-          <button key={index} onClick={() => filterNews(item)}>
-            {item}
-          </button>
+          <button key={index} onClick={() => filterNews(item)} type="button" className="btn btn-primary" style={{marginRight:'1rem',marginTop:'.25rem'}} data-toggle="button" aria-pressed="false" autocomplete="off">
+          {item}
+        </button>
         ))}
       </div>
-      <div>
+            </Nav.Link>
+            
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+      <div className="container">
+      <div className="custome-card">
         {(filterArray.length > 0 ? filterArray : newsData)?.map((news, index) => (
           <Card  key={news.id} news={news} />
         ))}
+      </div>
       </div>
     </>
   );

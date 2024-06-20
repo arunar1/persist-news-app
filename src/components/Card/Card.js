@@ -2,7 +2,9 @@
 import { useContext } from "react";
 import { newsContext } from "../../hooks/UseContextNews";
 import { useNavigate } from 'react-router-dom';
-
+import Cards from 'react-bootstrap/Card';
+import CardGroup from 'react-bootstrap/CardGroup';
+import '../../App.css'
 
 const Card = ({ news }) => {
   const navigate = useNavigate();
@@ -12,8 +14,8 @@ const Card = ({ news }) => {
     const { updated, title, abstract, media } = news;
   
     const mediaMetaData = media?.[0]?.["media-metadata"] || [];
-    const mediaURL = mediaMetaData?.[0]?.url;
-    const mediaCaption = media?.[0]?.caption || "media src";
+    const mediaURL = mediaMetaData?.[2]?.url;
+    const mediaCaption = media?.[2]?.caption || "media src";
 
     
     const showNewsDetails=(news)=>{
@@ -24,23 +26,25 @@ const Card = ({ news }) => {
 
   
     return (
-      <div style={{backgroundColor:'yellow',margin:'20px'}} onClick={()=>{
+
+      <div onClick={()=>{
         showNewsDetails(news)
-      }} >
-        <div >{updated}</div>
-        <article >
-          <div>
-            <h3>{title}</h3>
-            <p>{abstract}</p>
-          </div>
-          <div >
-            {mediaURL ? (
-              <img src={mediaURL} alt={mediaCaption} />
-            ) : (
-              "No media found"
-            )}
-          </div>
-        </article>
+      }}  >
+      <CardGroup style={{margin:'2rem'}}>
+      <Cards>
+        <Cards.Img variant="top"  src={mediaURL} className="custom-card-img" />
+        <Cards.Body>
+          <Cards.Title>{title}</Cards.Title>
+          <Cards.Text>
+          {abstract}
+          </Cards.Text>
+        </Cards.Body>
+        <Cards.Footer>
+          <small className="text-muted">{updated}</small>
+        </Cards.Footer>
+      </Cards>
+    </CardGroup>
+
       </div>
     );
   };

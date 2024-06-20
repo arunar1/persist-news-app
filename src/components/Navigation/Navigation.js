@@ -4,9 +4,11 @@ import Home from "../Home/Home";
 import About from "../About/About";
 import { UseContextNews } from "../../hooks/UseContextNews";
 import NewsDetails from "../NewsDetails/NewsDetails";
+import Header from "../Home/Header";
 export default function Navigation() {
   return (
     <div>
+      <Header/>
       <UseContextNews>
         <BrowserRouter>
           <Routes>
