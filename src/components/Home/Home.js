@@ -5,16 +5,17 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import '../../App.css'
 import Container from 'react-bootstrap/Container';
+import { Filter } from "react-bootstrap-icons";
 const API_KEY = "pjcAWyAdnmYc1Le8js0Z6UyesqoPDX3x";
 const POPULAR_URL =
   "https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=";
 const url = `${POPULAR_URL}${API_KEY}`;
 
-
 export default function Home() {
   const { newsData, loading, error } = FetchData(url);
   const [filterArray, setFilterArray] = useState([]);
   const [distinctArray, setDistinctArray] = useState([]);
+  const [activeBtn,setActiveBtn]=useState('')
 
   
 
@@ -27,6 +28,7 @@ export default function Home() {
   }, [newsData]);
 
   const filterNews = (section) => {
+    setActiveBtn(section)
     if (section === "All") {
       setFilterArray([]); 
     } else {
@@ -51,7 +53,8 @@ export default function Home() {
     <>
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container className="container">
-        <Navbar.Toggle aria-controls="navbarScroll" />
+      
+        <Navbar.Toggle aria-controls="navbarScroll" ><Filter/></Navbar.Toggle>
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto navbar-custome"
@@ -61,7 +64,7 @@ export default function Home() {
             <Nav.Link href="#action1">
             <div>
         {distinctArray?.map((item, index) => (
-          <button key={index} onClick={() => filterNews(item)} type="button" className="btn btn-primary" style={{marginRight:'1rem',marginTop:'.25rem'}} data-toggle="button" aria-pressed="false" autocomplete="off">
+          <button key={index} onClick={() => filterNews(item)} type="button"  className="btn btn-primary"   style={{ marginRight: '1rem', marginTop: '.25rem', backgroundColor: item === activeBtn ? 'red' : 'transparent',color: item === activeBtn ? 'white' : 'black' }} data-toggle="button" aria-pressed="false" >
           {item}
         </button>
         ))}
