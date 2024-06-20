@@ -6,6 +6,9 @@ import Nav from 'react-bootstrap/Nav';
 import '../../App.css'
 import Container from 'react-bootstrap/Container';
 import { Filter } from "react-bootstrap-icons";
+import Alert from 'react-bootstrap/Alert';
+
+
 
 const url = `${process.env.REACT_APP_POPULAR_URL}${process.env.REACT_APP_API_KEY}`;
 
@@ -38,7 +41,12 @@ export default function Home() {
   
 
   if (loading) {
-    return <h1>Data Loading...</h1>;
+    return <Alert  style={{marginTop:'7rem',marginInline:'1rem'}}variant="success">
+    <Alert.Heading>Loading</Alert.Heading>
+    <p>
+      Please Wait.....
+    </p> 
+  </Alert>;
   }
 
   if (error) {

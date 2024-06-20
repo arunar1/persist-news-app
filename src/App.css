@@ -69,4 +69,17 @@
   .navbar-custome{
     margin: auto;
   }
+  
+}
+
+.details-img-card {
+  width: 100%; 
+  height: auto;
+  margin: auto; 
+}
+
+@media (min-width: 768px) {
+  .details-img-card {
+    width: 700px; 
+}
 }

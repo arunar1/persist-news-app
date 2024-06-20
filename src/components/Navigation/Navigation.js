@@ -5,6 +5,7 @@ import About from "../About/About";
 import { UseContextNews } from "../../hooks/UseContextNews";
 import NewsDetails from "../NewsDetails/NewsDetails";
 import Header from "../Home/Header";
+import Contact from "../Contact/Contact";
 export default function Navigation() {
   return (
     <div>
@@ -15,6 +16,7 @@ export default function Navigation() {
             <Route exact path="/" element={<Home />}></Route>
             <Route  path="/details" element={<NewsDetails />}></Route>
             <Route exact path="/about" element={<About />} />
+            <Route exact path="/contact" element={<Contact />} />
           </Routes>
         </BrowserRouter>
       </UseContextNews>
