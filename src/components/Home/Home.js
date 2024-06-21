@@ -16,7 +16,7 @@ export default function Home() {
   const { newsData, loading, error } = FetchData(url);
   const [filterArray, setFilterArray] = useState([]);
   const [distinctArray, setDistinctArray] = useState([]);
-  const [activeBtn,setActiveBtn]=useState('')
+  const [activeBtn,setActiveBtn]=useState('All')
 
   
 
@@ -64,7 +64,7 @@ export default function Home() {
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto navbar-custome"
-            style={{ maxHeight: '150px' }}
+            style={{ maxHeight: '180px' }}
             navbarScroll
           >
             <Nav.Link href="">
