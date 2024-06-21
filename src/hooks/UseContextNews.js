@@ -5,7 +5,7 @@ export const newsContext= React.createContext()
 
 export function UseContextNews(props) {
 
-    const [selectedNews,setSelectedNews]=useState('')
+    const [selectedNews,setSelectedNews]=useState('empty')
 
 
     

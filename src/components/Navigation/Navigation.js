@@ -9,14 +9,15 @@ import Contact from "../Contact/Contact";
 export default function Navigation() {
   return (
     <div>
-      <Header/>
+      
       <UseContextNews>
+      
         <BrowserRouter>
           <Routes>
-            <Route exact path="/" element={<Home />}></Route>
-            <Route  path="/details" element={<NewsDetails />}></Route>
-            <Route exact path="/about" element={<About />} />
-            <Route exact path="/contact" element={<Contact />} />
+            <Route exact path="/" element={<><Header/><Home /></>}></Route>
+            <Route  path="/details" element={<><Header/><NewsDetails /></>}></Route>
+            <Route exact path="/about" element={<><Header/><About /></>} />
+            <Route exact path="/contact" element={<><Header/><Contact /></>} />
           </Routes>
         </BrowserRouter>
       </UseContextNews>
