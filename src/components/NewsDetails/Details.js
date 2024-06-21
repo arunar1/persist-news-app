@@ -23,7 +23,7 @@ export default function Details(props) {
           
         </Card.Body>
         <div className='details-img-card'>
-        <Card.Img  variant="bottom" src={mediaURL} />
+        <Card.Img  variant="bottom" style={{padding:'1rem'}} src={mediaURL} />
         </div>
         
         <Card.Text>{source} : {updated}</Card.Text>
