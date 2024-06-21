@@ -16,9 +16,9 @@ export default function Header() {
             style={{ maxHeight: '150px' }}
             navbarScroll
           >
-            <Nav.Link href="">Home</Nav.Link>
-            <Nav.Link href="">About</Nav.Link>
-            <Nav.Link href="">Contact</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/contact">Contact</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

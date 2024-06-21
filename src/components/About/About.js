@@ -5,7 +5,7 @@ export default function About() {
   return (
     <div style={{marginTop:'7rem',marginInline:'2rem'}}>
       <Card className="text-center">
-      <Card.Header>Hello welcome</Card.Header>
+      <Card.Header>Welcome</Card.Header>
       <Card.Body>
         <Card.Title>Created by @r</Card.Title>
         <Card.Text>
